@@ -29,21 +29,22 @@ public class PagoService {
     @Autowired
     private EstudianteRepository estudianteRepository;
 
-    public Pago savePago(MultipartFile file, double cantidad, TypePago type,  LocalDate date, String codigoEstudiante) throws IOException{
-        
-        Path folderPath = Paths.get(System.getProperty("user.home"), "enset-data","pagos");
+    public Pago savePago(MultipartFile file, double cantidad, TypePago type, LocalDate date, String codigoEstudiante)
+            throws IOException {
 
-        if(!Files.exists(folderPath)){
-            
-       Files.createDirectories(folderPath);
-            
+        Path folderPath = Paths.get(System.getProperty("user.home"), "enset-data", "pagos");
+
+        if (!Files.exists(folderPath)) {
+
+            Files.createDirectories(folderPath);
+
         }
 
         String fileName = UUID.randomUUID().toString();
-        //creamos un path ara el archivo pdf que se guardara en enset/data
-        Path filePath = Paths.get(System.getProperty("user.home"), "enset-data","pagos", fileName + ".pdf");
+        // creamos un path ara el archivo pdf que se guardara en enset/data
+        Path filePath = Paths.get(System.getProperty("user.home"), "enset-data", "pagos", fileName + ".pdf");
 
-        Files.copy(file.getInputStream(), filePath); 
+        Files.copy(file.getInputStream(), filePath);
 
         Estudiantes estudiante = estudianteRepository.findByCodigo(codigoEstudiante);
 
@@ -55,20 +56,18 @@ public class PagoService {
                 .cantidad(cantidad)
                 .file(filePath.toUri().toString())
                 .build();
-                
 
         return pagoRepository.save(pago);
     }
-    
-    public byte[] getArchivoPorId(Long PagoId) throws IOException{
+
+    public byte[] getArchivoPorId(Long PagoId) throws IOException {
 
         Pago pago = pagoRepository.findById(PagoId).get();
 
         return Files.readAllBytes(Path.of(URI.create(pago.getFile())));
     }
 
-
-    public Pago actualizarPagoPorStatus(PagoStatus status , Long id) {
+    public Pago actualizarPagoPorStatus(PagoStatus status, Long id) {
         Pago pago = pagoRepository.findById(id).get();
         pago.setStatus(status);
         return pagoRepository.save(pago);

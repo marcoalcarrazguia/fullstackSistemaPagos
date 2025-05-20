@@ -16,5 +16,5 @@ public interface PagoRepository extends JpaRepository<Pago, Long> {
 
     List<Pago> findByStatus(PagoStatus status);
 
-    List<Pago> finByType(TypePago type);
+    List<Pago> findByType(TypePago type);
 }

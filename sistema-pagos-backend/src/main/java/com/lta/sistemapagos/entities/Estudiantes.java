@@ -18,7 +18,7 @@ public class Estudiantes {
     private String id;
     private String nombre;
     private String apellido;
-    @Column(unique=true)
+    @Column(unique = true)
     private String codigo;
     private String programaId;
     private String foto;
