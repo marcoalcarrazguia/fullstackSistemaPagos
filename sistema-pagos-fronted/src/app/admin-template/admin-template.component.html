@@ -10,20 +10,32 @@
         Importar
     </button>
     <mat-menu #importMenu>
-        <button mat-menu-item>cargar estudiantes</button>
-        <button mat-menu-item>cargar pagos</button>
+        <button mat-menu-item routerLink="/loadEstudiantes">cargar estudiantes</button>
+        <button mat-menu-item routerLink="/loadPagos">cargar pagos</button>
     </mat-menu>
-    <button mat-raised-button color="accent">Salir</button>
+    <button mat-raised-button color="accent" routerLink="/login">Salir</button>
 </mat-toolbar>
 
 <mat-drawer-container>
     <mat-drawer opened="true" mode="side" position="start">
         <mat-list>
             <mat-list-item>
-                <button mat-button>Estudiantes</button>
+                <button mat-button routerLink="/dashboard">
+                    <mat-icon>dashboard</mat-icon>
+                    Dashboard
+                </button>
             </mat-list-item>
-               <mat-list-item>
-                <button mat-button>Pagos</button>
+            <mat-list-item>
+                <button mat-button routerLink="/estudiantes">
+                    <mat-icon>dashboard</mat-icon>
+                    Estudiantes
+                </button>
+            </mat-list-item>
+              <mat-list-item>
+                <button mat-button routerLink="/Pago">
+                    <mat-icon>dashboard</mat-icon>
+                    Pago
+                </button>
             </mat-list-item>
         </mat-list>
     </mat-drawer>
