@@ -7,10 +7,12 @@ import { LoadPagosComponent } from './load-pagos/load-pagos.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 import { PagosComponent } from './pagos/pagos.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
+  { path:"", component : LoginComponent},
   {path:"home",component: HomeComponent},
-  {path:"profile",component: LoginComponent},
+  {path:"profile",component: ProfileComponent},
   {path:"login",component: LoginComponent},
   {path:"loadEstudiantes",component: LoadEstudiantesComponent},
   {path:"loadPagos",component: LoadPagosComponent},

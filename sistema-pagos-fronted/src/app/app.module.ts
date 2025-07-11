@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { PagosComponent } from './pagos/pagos.component';
 import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     PagosComponent,
     EstudiantesComponent,
     DashboardComponent,
-    LoadPagosComponent
+    LoadPagosComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatMenuModule,
     MatSidenavModule,
     MatListModule,
+    MatCardModule,
     
     
   ],
