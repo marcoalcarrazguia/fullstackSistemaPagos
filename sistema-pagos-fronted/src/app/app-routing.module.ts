@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 import { PagosComponent } from './pagos/pagos.component';
 import { ProfileComponent } from './profile/profile.component';
+import { EstudianteDetailsComponent } from './estudiante-details/estudiante-details.component';
 
 const routes: Routes = [
   { path:"", component : LoginComponent},
@@ -19,6 +20,11 @@ const routes: Routes = [
   {path:"dashboard",component: DashboardComponent},
   {path:"estudiantes",component: EstudiantesComponent},
   {path:"pagos",component: PagosComponent},
+
+
+
+
+  {path: "estudiante-detalles/:codigo", component: EstudianteDetailsComponent}, // Assuming you want to show details in the same component
 ];
 
 @NgModule({

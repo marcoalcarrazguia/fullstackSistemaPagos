@@ -21,6 +21,14 @@ import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatCardModule} from '@angular/material/card';
 
+
+
+
+import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import { EstudianteDetailsComponent } from './estudiante-details/estudiante-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +42,7 @@ import {MatCardModule} from '@angular/material/card';
     EstudiantesComponent,
     DashboardComponent,
     LoadPagosComponent,
+    EstudianteDetailsComponent,
     
   ],
   imports: [
@@ -47,6 +56,13 @@ import {MatCardModule} from '@angular/material/card';
     MatListModule,
     MatCardModule,
     
+
+
+
+    MatTableModule,
+    HttpClientModule,
+    MatPaginatorModule,
+    MatSortModule,
     
   ],
   providers: [
