@@ -20,6 +20,10 @@ import { PagosComponent } from './pagos/pagos.component';
 import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -46,12 +50,11 @@ import {MatCardModule} from '@angular/material/card';
     MatSidenavModule,
     MatListModule,
     MatCardModule,
-    
-    
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
-  providers: [
-    provideAnimationsAsync()
-  ],
+  providers: [provideAnimationsAsync(),AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
