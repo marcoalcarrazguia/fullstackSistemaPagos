@@ -13,7 +13,7 @@ export class EstudiantesComponent implements OnInit {
 
   estudiantes!: Array<Estudiante>;
   estudiantesDataSource!: MatTableDataSource<Estudiante>;
-  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'codigo', 'programaId'];
+  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'codigo', 'programaId','pagos'];
 
   constructor(private estudiantesService: EstudiantesService, private router:Router) { }
 
@@ -28,11 +28,9 @@ export class EstudiantesComponent implements OnInit {
         console.error("Error al cargar los estudiantes", err);
       }
     })
-
-
   }
 
   listarPagosEstudiante(estudiante: Estudiante) {
-    this.router.navigate(['/estudiante-detalles', estudiante.codigo]);
+    this.router.navigateByUrl(`/admin/estudiante-detalles/${estudiante.codigo}`)
   }
 }

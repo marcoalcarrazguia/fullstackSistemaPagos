@@ -4,17 +4,23 @@ import { AuthService } from '../services/auth.service';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class AuthGuard {
+export class AuthorizationGuard {
 
   constructor(private authService: AuthService, private router: Router) {
 
   }
   canActivate(route:ActivatedRouteSnapshot,state:RouterStateSnapshot):Observable<boolean |UrlTree > | Promise<boolean |UrlTree> | boolean | UrlTree {
     if (this.authService.isAuthenticated) {
-       alert('MENSAJE GUARD ');
+      let requiredRoles = route.data['roles'];
+      let userRoles = this.authService.roles;
+      for (let role of userRoles) {
+        if(requiredRoles.includes(role)) {
+          return true;
+        }
+      }
       return true;
     } else {
-      this.router.navigateByUrl('/login ');
+      this.router.navigateByUrl('/login');
       alert('Por favor, inicia sesión para continuar SONSO DE M.');
       return false;
     }

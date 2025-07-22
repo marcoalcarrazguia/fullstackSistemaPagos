@@ -18,6 +18,6 @@ export class EstudiantesService {
     return this.http.get<Array<Estudiante>>(`${environment.backenHost}/estudiantes`);
   }
   public getPagosDeEstudiante(codigo:string):Observable<Array<Pago>>{
-    return this.http.get<Array<Pago>>(`${environment.backenHost}/estudiantes/${codigo}/pagos`);
+    return this.http.get<Array<Pago>>(`${environment.backenHost}/estudiante/${codigo}/pagos`);
   }
 }
