@@ -9,22 +9,29 @@ import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 import { PagosComponent } from './pagos/pagos.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EstudianteDetailsComponent } from './estudiante-details/estudiante-details.component';
+import { AdminTemplateComponent } from './admin-template/admin-template.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path:"", component : LoginComponent},
-  {path:"home",component: HomeComponent},
-  {path:"profile",component: ProfileComponent},
-  {path:"login",component: LoginComponent},
-  {path:"loadEstudiantes",component: LoadEstudiantesComponent},
-  {path:"loadPagos",component: LoadPagosComponent},
-  {path:"dashboard",component: DashboardComponent},
-  {path:"estudiantes",component: EstudiantesComponent},
-  {path:"pagos",component: PagosComponent},
-
-
-
-
-  {path: "estudiante-detalles/:codigo", component: EstudianteDetailsComponent}, // Assuming you want to show details in the same component
+  { path: "", component: LoginComponent },
+  { path: "login", component: LoginComponent },
+  {
+    path: "admin", 
+    component: AdminTemplateComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: "home", component: HomeComponent },
+      { path: "profile", component: ProfileComponent },
+      { path: "loadEstudiantes", component: LoadEstudiantesComponent },
+      { path: "loadPagos", component: LoadPagosComponent },
+      { path: "dashboard", component: DashboardComponent },
+      { path: "estudiantes", component: EstudiantesComponent },
+      { path: "pagos", component: PagosComponent },
+      { path: "estudiante-detalles/:codigo", component: EstudianteDetailsComponent }
+    ]
+  },
+  // Redirección para rutas no encontradas (opcional)
+  { path: "**", redirectTo: "/login" }
 ];
 
 @NgModule({
