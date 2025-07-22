@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { PagosComponent } from './pagos/pagos.component';
 import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+<<<<<<< HEAD
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -28,6 +29,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { EstudianteDetailsComponent } from './estudiante-details/estudiante-details.component';
+=======
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './guards/auth.guard';
+>>>>>>> 4b5805a9484530b2691a491f0f65cb42c228f55e
 
 @NgModule({
   declarations: [
@@ -56,6 +64,7 @@ import { EstudianteDetailsComponent } from './estudiante-details/estudiante-deta
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+<<<<<<< HEAD
     MatTableModule,
     HttpClientModule,
     MatPaginatorModule,
@@ -64,7 +73,10 @@ import { EstudianteDetailsComponent } from './estudiante-details/estudiante-deta
   providers: [
     provideAnimationsAsync(),
     AuthGuard
+=======
+>>>>>>> 4b5805a9484530b2691a491f0f65cb42c228f55e
   ],
+  providers: [provideAnimationsAsync(),AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
