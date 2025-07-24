@@ -31,6 +31,9 @@ import { EstudianteDetailsComponent } from './estudiante-details/estudiante-deta
 import { AuthorizationGuard } from './guards/authorization.guard';
 import { NewPagoComponent } from './new-pago/new-pago.component';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -67,7 +70,10 @@ import { MatDividerModule } from '@angular/material/divider';
     HttpClientModule,
     MatPaginatorModule,
     MatSortModule,
-    MatDividerModule
+    MatDividerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [
     provideAnimationsAsync(),

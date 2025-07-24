@@ -9,15 +9,18 @@ import { environment } from '../../environments/environment';
 })
 export class EstudiantesService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  public getAllPagos():Observable<Array<Pago>>{
+  public getAllPagos(): Observable<Array<Pago>> {
     return this.http.get<Array<Pago>>(`${environment.backenHost}/pagos`);
   }
-  public getAllEstudiantes():Observable<Array<Estudiante>>{
+  public getAllEstudiantes(): Observable<Array<Estudiante>> {
     return this.http.get<Array<Estudiante>>(`${environment.backenHost}/estudiantes`);
   }
-  public getPagosDeEstudiante(codigo:string):Observable<Array<Pago>>{
+  public getPagosDeEstudiante(codigo: string): Observable<Array<Pago>> {
     return this.http.get<Array<Pago>>(`${environment.backenHost}/estudiante/${codigo}/pagos`);
+  }
+  public guardarPago(formData: any): Observable<Pago> {
+    return this.http.post<Pago>(`${environment.backenHost}/pagos`, formData);
   }
 }

@@ -21,7 +21,7 @@ export class AuthorizationGuard {
       return true;
     } else {
       this.router.navigateByUrl('/login');
-      alert('Por favor, inicia sesión para continuar SONSO DE M.');
+      alert('Por favor, inicia sesión para continuar');
       return false;
     }
   }
